@@ -27,7 +27,6 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--grad1), var(--grad2));
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
   will-change: background-position;
@@ -58,9 +57,6 @@ body {
 .light {
   --clr-bg: #fcfcfc;
   --clr-bg-alt: #fff;
-  --clr-fg: #555;
-  --clr-fg-alt: #444;
-  --clr-primary: #2978b5;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --grad1: #a2c4e4;
   --grad2: #e3bfb3;
@@ -361,7 +357,9 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 0.7;
 }
+
 
 .skills__list-item {
   margin: 0.5em;
@@ -383,16 +381,6 @@ main {
   color: var(--clr-fg);
 }
 
-.scroll-top {
-  display: none;
-  position: fixed;
-  bottom: 1em;
-  right: 2em;
-  background-color: transparent;
-  font-size: 1.8rem;
-  transition: transform 0.2s ease-in-out;
-}
-
 @media (max-width: 600px) {
   .header {
     height: 6em;
@@ -405,18 +393,20 @@ main {
   .nav__list {
     flex-direction: column;
     padding: 4em 0;
-    position: absolute;
+    position: fixed;
+    top: 6em;
     right: 0;
     left: 0;
-    top: 5em;
     background-color: var(--clr-bg);
-    width: 0;
-    overflow: hidden;
-    transition: width 0.2s ease-in-out;
+    width: 100%;
+    height: calc(100vh - 6em);
+    overflow-y: auto;
+    transition: all 0.2s ease-in-out;
+    z-index: 1;
   }
 
   .display-nav-list {
-    width: 100%;
+    transform: translateY(6em);
   }
 
   .nav__list-item {
@@ -444,11 +434,13 @@ main {
 }
 
 :root {
-  --color1: #3498db;
-  --color2: #9b59b6;
-  --color3: #f1c40f;
-  min-height: 100vh;
-  position: relative;
+  --clr-bg: #23283e;
+  --clr-bg-alt: #2a2f4c;
+  --clr-fg: #bdbddd;
+  --clr-fg-alt: #cdcdff;
+  --clr-primary: #90a0d9;
+  --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 @keyframes moving-gradient {

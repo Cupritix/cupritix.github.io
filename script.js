@@ -10,7 +10,7 @@ const addThemeClass = (bodyClass, btnClass) => {
   }
 };
 
-const getBodyTheme = localStorage.getItem("portfolio-theme");
+const getBodyTheme = localStorage.getItem("portfolio-theme") || "dark"; // Default to "dark" if no theme is saved
 const getBtnTheme = localStorage.getItem("portfolio-btn-theme");
 
 addThemeClass(getBodyTheme, getBtnTheme);
@@ -46,28 +46,19 @@ const displayList = () => {
     btnHamburger.classList.add("fa-bars");
     navUl.classList.remove("display-nav-list");
   }
+
+  navUl.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      displayList();
+    }
+  });
 };
 
 btnHamburger.addEventListener("click", displayList);
 
-const scrollUp = () => {
-  const btnScrollTop = document.querySelector(".scroll-top");
-
-  if (
-    body.scrollTop > 500 ||
-    document.documentElement.scrollTop > 500
-  ) {
-    btnScrollTop.style.display = "block";
-  } else {
-    btnScrollTop.style.display = "none";
-  }
-};
-
-document.addEventListener("scroll", scrollUp);
-
 const updateGradientColors = (bodyClass) => {
   if (bodyClass === "dark") {
-    document.documentElement.style.setProperty("--color1", "#1c2833");
+    document.documentElement.style.setProperty("--color1", "#0068ac");
     document.documentElement.style.setProperty("--color2", "#34495e");
     document.documentElement.style.setProperty("--color3", "#2c3e50");
     document.documentElement.style.setProperty("--color4", "#1c2833");
@@ -80,5 +71,6 @@ const updateGradientColors = (bodyClass) => {
     document.documentElement.style.setProperty("--color5", "#2ecc71");
   }
 };
+
 // Update gradient colors based on the initial theme
 updateGradientColors(getBodyTheme);
