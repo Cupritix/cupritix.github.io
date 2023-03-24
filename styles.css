@@ -57,9 +57,15 @@ body {
 .light {
   --clr-bg: #fcfcfc;
   --clr-bg-alt: #fff;
+  --clr-fg: #555;
+  --clr-fg-alt: #444;
+  --clr-primary: #2978b5;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  --grad1: #a2c4e4;
-  --grad2: #e3bfb3;
+  --color1: #a2c4e4;
+  --color2: #b3cee9;
+  --color3: #c4d8ee;
+  --color4: #b3cee9;
+  --color5: #a2c4e4;
 }
 
 .dark {
@@ -83,6 +89,7 @@ body {
   color: var(--clr-bg);
 }
 
+/* Typography */
 h1,
 h2,
 h3,
@@ -92,7 +99,7 @@ h4 {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: calc(2rem + 2vw);
 }
 
 h2 {
@@ -117,12 +124,6 @@ a {
 
 button {
   cursor: pointer;
-}
-
-@media (max-width: 900px) {
-  h1 {
-    font-size: 2.6rem;
-  }
 }
 
 /*===================
@@ -350,14 +351,14 @@ main {
   margin-left: 0.5em;
 }
 
-.skills__list {
+.skills .skills__list {
   max-width: 450px;
   width: 95%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 
@@ -393,14 +394,6 @@ main {
   .nav__list {
     flex-direction: column;
     padding: 4em 0;
-    position: fixed;
-    top: 6em;
-    right: 0;
-    left: 0;
-    background-color: var(--clr-bg);
-    width: 100%;
-    height: calc(100vh - 6em);
-    overflow-y: auto;
     transition: all 0.2s ease-in-out;
     z-index: 1;
   }
