@@ -1,8 +1,9 @@
+// DOM elements
 const body = document.body;
-
 const btnTheme = document.querySelector(".fa-moon");
 const btnHamburger = document.querySelector(".fa-bars");
 
+// Add theme class
 const addThemeClass = (bodyClass, btnClass) => {
   if (bodyClass && btnClass) {
     body.classList.add(bodyClass);
@@ -10,13 +11,17 @@ const addThemeClass = (bodyClass, btnClass) => {
   }
 };
 
-const getBodyTheme = localStorage.getItem("portfolio-theme") || "dark"; // Default to "dark" if no theme is saved
+// Get stored theme or set default theme
+const getBodyTheme = localStorage.getItem("portfolio-theme") || "dark";
 const getBtnTheme = localStorage.getItem("portfolio-btn-theme");
 
+// Add initial theme classes
 addThemeClass(getBodyTheme, getBtnTheme);
 
+// Check if the current theme is dark
 const isDark = () => body.classList.contains("dark");
 
+// Set theme classes
 const setTheme = (bodyClass, btnClass) => {
   body.classList.remove(localStorage.getItem("portfolio-theme"));
   btnTheme.classList.remove(localStorage.getItem("portfolio-btn-theme"));
@@ -25,15 +30,16 @@ const setTheme = (bodyClass, btnClass) => {
 
   localStorage.setItem("portfolio-theme", bodyClass);
   localStorage.setItem("portfolio-btn-theme", btnClass);
-
-  updateGradientColors(bodyClass);
 };
 
+// Toggle theme between dark and light
 const toggleTheme = () =>
   isDark() ? setTheme("light", "fa-moon") : setTheme("dark", "fa-sun");
 
+// Event listener for theme toggle button
 btnTheme.addEventListener("click", toggleTheme);
 
+// Display or hide navigation list
 const displayList = () => {
   const navUl = document.querySelector(".nav__list");
 
@@ -54,23 +60,5 @@ const displayList = () => {
   });
 };
 
+// Event listener for hamburger menu button
 btnHamburger.addEventListener("click", displayList);
-
-const updateGradientColors = (bodyClass) => {
-  if (bodyClass === "dark") {
-    document.documentElement.style.setProperty("--color1", "#0068ac");
-    document.documentElement.style.setProperty("--color2", "#34495e");
-    document.documentElement.style.setProperty("--color3", "#2c3e50");
-    document.documentElement.style.setProperty("--color4", "#1c2833");
-    document.documentElement.style.setProperty("--color5", "#34495e");
-  } else {
-    document.documentElement.style.setProperty("--color1", "#3498db");
-    document.documentElement.style.setProperty("--color2", "#9b59b6");
-    document.documentElement.style.setProperty("--color3", "#f1c40f");
-    document.documentElement.style.setProperty("--color4", "#e67e22");
-    document.documentElement.style.setProperty("--color5", "#2ecc71");
-  }
-};
-
-// Update gradient colors based on the initial theme
-updateGradientColors(getBodyTheme);

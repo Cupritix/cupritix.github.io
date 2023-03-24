@@ -76,6 +76,11 @@ body {
   --clr-primary: #90a0d9;
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  --color1: #0068ac;
+  --color2: #34495e;
+  --color3: #2c3e50;
+  --color4: #1c2833;
+  --color5: #34495e;
 }
 
 ::-moz-selection {
