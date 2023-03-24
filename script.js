@@ -60,5 +60,6 @@ const displayList = () => {
   });
 };
 
+
 // Event listener for hamburger menu button
 btnHamburger.addEventListener("click", displayList);
