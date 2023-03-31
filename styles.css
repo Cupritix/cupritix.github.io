@@ -27,6 +27,14 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--bg-color1) 0%,
+    var(--bg-color2) 20%,
+    var(--bg-color3) 40%,
+    var(--bg-color4) 60%,
+    var(--bg-color5) 80%
+  );
   background-size: 200% 200%;
   animation: gradient 10s ease infinite;
   will-change: background-position;
@@ -61,11 +69,11 @@ body {
   --clr-fg-alt: #444;
   --clr-primary: #2978b5;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  --color1: #a2c4e4;
-  --color2: #b3cee9;
-  --color3: #c4d8ee;
-  --color4: #b3cee9;
-  --color5: #a2c4e4;
+  --bg-color1: #fafafa;
+  --bg-color2: #e4e5f1;
+  --bg-color3: #d2d3db;
+  --bg-color4: #9394a5;
+  --bg-color5: #484b6a;
 }
 
 .dark {
@@ -76,11 +84,11 @@ body {
   --clr-primary: #90a0d9;
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  --color1: #0068ac;
-  --color2: #34495e;
-  --color3: #2c3e50;
-  --color4: #1c2833;
-  --color5: #34495e;
+  --bg-color1: #0068ac;
+  --bg-color2: #34495e;
+  --bg-color3: #2c3e50;
+  --bg-color4: #1c2833;
+  --bg-color5: #34495e;
 }
 
 ::-moz-selection {
